@@ -14,15 +14,17 @@ function SkillItem({
   return (
     <div>
       <h4 className="text-white text-sm font-medium mb-3">{name}</h4>
-      <div className="flex flex-wrap gap-2">
-        {technologies.map((tech) => (
-          <span
-            key={tech}
-            className={`px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r ${color} rounded-lg border border-opacity-20 border-white hover:scale-105 transition-transform duration-200`}
-          >
-            {tech}
-          </span>
-        ))}
+      <div className="overflow-x-auto pb-1">
+        <div className="flex flex-nowrap gap-2 min-w-max">
+          {technologies.map((tech) => (
+            <span
+              key={tech}
+              className={`px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r ${color} rounded-lg border border-opacity-20 border-white hover:scale-105 transition-transform duration-200`}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -99,11 +101,11 @@ export default function Skills() {
         </div>
 
         {/* Category cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 justify-items-center">
           {skillCategories.map((cat) => (
             <div
               key={cat.title}
-              className="gradient-border bg-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300"
+              className="gradient-border bg-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300 w-fit max-w-full"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div>{cat.icon}</div>
