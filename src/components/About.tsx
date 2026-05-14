@@ -1,29 +1,52 @@
-import { useState } from 'react';
+import { useState } from "react";
+import {
+  Users,
+  Lightbulb,
+  Search,
+  Target,
+  MessageCircle,
+  Zap,
+  Gamepad2,
+  Music,
+  Palette,
+  Code,
+  Dices,
+  Brain,
+  Heart,
+} from "lucide-react";
 
 const softSkills = [
-  { icon: '🤝', label: 'Travail en équipe' },
-  { icon: '💡', label: 'Créativité' },
-  { icon: '🔍', label: 'Curiosité' },
-  { icon: '🎯', label: 'Rigueur' },
-  { icon: '🗣️', label: 'Communication' },
-  { icon: '⚡', label: 'Adaptabilité' },
+  {
+    icon: <Users className="w-7 h-7 text-primary" />,
+    label: "Travail en équipe",
+  },
+  {
+    icon: <Lightbulb className="w-7 h-7 text-secondary" />,
+    label: "Créativité",
+  },
+  { icon: <Search className="w-7 h-7 text-primary" />, label: "Curiosité" },
+  { icon: <Target className="w-7 h-7 text-secondary" />, label: "Rigueur" },
+  {
+    icon: <MessageCircle className="w-7 h-7 text-primary" />,
+    label: "Communication",
+  },
+  { icon: <Zap className="w-7 h-7 text-secondary" />, label: "Adaptabilité" },
 ];
 
 const passions = [
-  { icon: '🎮', label: 'Gaming' },
-  { icon: '🎵', label: 'Musique' },
-  { icon: '📚', label: 'Lecture' },
-  { icon: '🏔️', label: 'Randonnée' },
-  { icon: '✈️', label: 'Voyages' },
-  { icon: '🍕', label: 'Cuisine' },
+  { icon: <Gamepad2 className="w-7 h-7 text-primary" />, label: "Gaming" },
+  { icon: <Palette className="w-7 h-7 text-secondary" />, label: "Peinture" },
+  { icon: <Music className="w-7 h-7 text-primary" />, label: "Musique" },
+  { icon: <Code className="w-7 h-7 text-secondary" />, label: "Programmation" },
+  { icon: <Dices className="w-7 h-7 text-primary" />, label: "Jeu de rôle" },
 ];
 
-type Tab = 'softskills' | 'passions';
+type Tab = "softskills" | "passions";
 
 export default function About() {
-  const [activeTab, setActiveTab] = useState<Tab>('softskills');
+  const [activeTab, setActiveTab] = useState<Tab>("softskills");
 
-  const items = activeTab === 'softskills' ? softSkills : passions;
+  const items = activeTab === "softskills" ? softSkills : passions;
 
   return (
     <section id="about" className="py-24 bg-surface/50">
@@ -38,16 +61,18 @@ export default function About() {
           </h2>
           <div className="space-y-4 text-muted text-lg leading-relaxed">
             <p>
-              Je suis un développeur passionné avec une forte appétence pour les technologies web modernes.
-              J'aime construire des applications robustes et des interfaces utilisateur intuitives.
+              Je suis un développeur passionné avec une forte appétence pour les
+              technologies modernes. J'aime construire des applications robustes
+              et des interfaces utilisateur intuitives.
             </p>
             <p>
-              Toujours en quête d'apprentissage, je cherche constamment à améliorer mes compétences et
-              à découvrir de nouvelles technologies qui me permettront de créer de meilleures expériences.
+              Toujours en quête d'apprentissage, je cherche constamment à
+              améliorer mes compétences et à découvrir de nouvelles technologies
+              qui me permettront de créer de meilleures expériences.
             </p>
             <p>
-              En dehors du code, j'apprécie de nombreuses activités qui nourrissent ma créativité
-              et m'aident à garder un bon équilibre.
+              En dehors du code, j'apprécie de nombreuses activités qui
+              nourrissent ma créativité et m'aident à garder un bon équilibre.
             </p>
           </div>
         </div>
@@ -56,30 +81,45 @@ export default function About() {
         <div>
           {/* Tabs */}
           <div className="flex bg-dark rounded-xl p-1 mb-6 border border-border w-fit">
-            {(['softskills', 'passions'] as Tab[]).map((tab) => (
+            {(["softskills", "passions"] as Tab[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   activeTab === tab
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
-                    : 'text-muted hover:text-white'
+                    ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
+                    : "text-muted hover:text-white"
                 }`}
               >
-                {tab === 'softskills' ? '🧠 Soft Skills' : '❤️ Passions'}
+                {tab === "softskills" ? (
+                  <span className="flex items-center gap-2">
+                    <Brain className="w-4 h-4" /> Soft Skills
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" /> Passions
+                  </span>
+                )}
               </button>
             ))}
           </div>
 
           {/* Grid of items */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 animate-fade-in" key={activeTab}>
+          <div
+            className="grid grid-cols-2 sm:grid-cols-3 gap-3 animate-fade-in"
+            key={activeTab}
+          >
             {items.map((item) => (
               <div
                 key={item.label}
                 className="gradient-border bg-card rounded-xl p-4 flex flex-col items-center gap-2 hover:-translate-y-1 transition-transform duration-200 cursor-default"
               >
-                <span className="text-2xl">{item.icon}</span>
-                <span className="text-white text-sm font-medium text-center">{item.label}</span>
+                <div className="flex items-center justify-center p-1">
+                  {item.icon}
+                </div>
+                <span className="text-white text-sm font-medium text-center">
+                  {item.label}
+                </span>
               </div>
             ))}
           </div>

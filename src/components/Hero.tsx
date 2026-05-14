@@ -15,9 +15,9 @@ export default function Hero() {
             Bonjour, je suis
           </p>
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
-            <span className="gradient-text">Ton Prénom</span>
+            <span className="gradient-text">Andy</span>
             <br />
-            <span className="text-white">Nom</span>
+            <span className="text-white">Samyn</span>
           </h1>
           <p className="text-xl text-primary font-semibold mb-6">
             Développeur Full-Stack
@@ -44,19 +44,18 @@ export default function Hero() {
 
         {/* Right — photo placeholder */}
         <div className="flex justify-center animate-fade-in">
-          <div className="relative w-72 h-72 md:w-80 md:h-80">
+          <div className="relative w-64 h-64 md:w-72 md:h-72">
             {/* Rotating border ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-secondary to-primary animate-spin [animation-duration:8s] p-0.5">
               <div className="w-full h-full rounded-full bg-dark" />
             </div>
             {/* Inner photo area */}
-            <div className="absolute inset-2 rounded-full bg-surface border border-border flex flex-col items-center justify-center gap-2">
-              <div className="w-16 h-16 rounded-full bg-border flex items-center justify-center">
-                <svg className="w-8 h-8 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <p className="text-muted text-xs text-center px-4">Photo à venir</p>
+            <div className="absolute inset-0.5 rounded-full border border-white/10 overflow-hidden">
+              <img 
+                src={`${import.meta.env.BASE_URL}andy_samyn.jpg`} 
+                alt="Andy Samyn" 
+                className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500" 
+              />
             </div>
           </div>
         </div>

@@ -4,20 +4,12 @@ import type { TimelineItem } from './Timeline';
 // ─── Ajouter une expérience ici pour en rajouter une ───
 const experienceItems: TimelineItem[] = [
   {
-    year: 'Jan 2025 – Juin 2025',
-    title: 'Développeur Web — Stage',
-    subtitle: 'Entreprise XYZ — Ville',
+    year: 'Mai 2026 – Août 2026',
+    title: 'Développeur Full Stack — Stage',
+    subtitle: 'INETUM — Lille',
     description:
-      'Développement de nouvelles fonctionnalités sur une application React / Node.js. Participation aux code reviews, sprints agiles et déploiements CI/CD.',
-    tags: ['React', 'Node.js', 'Docker', 'GitLab CI'],
-  },
-  {
-    year: 'Été 2024',
-    title: 'Développeur Front-end — CDD',
-    subtitle: 'Agence ABC — Ville',
-    description:
-      'Intégration de maquettes Figma en composants React, optimisation des performances et accessibilité WCAG.',
-    tags: ['React', 'Figma', 'Tailwind', 'A11y'],
+      'Développement de nouvelles fonctionnalités sur une application Php/Symfony. Participation aux code reviews et sprints agiles.',
+    tags: ['Php', 'Symfony', 'JavaScript', 'Docker', 'Agile'],
   },
 ];
 

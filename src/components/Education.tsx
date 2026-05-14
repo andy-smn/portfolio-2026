@@ -4,27 +4,28 @@ import type { TimelineItem } from './Timeline';
 // ─── Ajouter une formation ici pour en rajouter une ───
 const educationItems: TimelineItem[] = [
   {
-    year: '2023 – 2026',
-    title: 'Bachelor Informatique',
-    subtitle: 'Université / École — Ville',
+    year: "2023 – 2026",
+    title: "BUT Informatique",
+    subtitle: "IUT de Lille — Villeneuve d'Ascq",
     description:
-      'Formation en développement logiciel, algorithmique, bases de données et architecture web. Projets en équipe, méthodes agiles.',
-    tags: ['Algorithmique', 'Web', 'BDD', 'Agile'],
+      "Formation en développement logiciel, algorithmique, bases de données et architecture web. Projets en équipe, méthodes agiles.",
+    tags: ["Algorithmique", "Web", "BDD", "Agile"],
   },
   {
-    year: '2021 – 2023',
-    title: 'BTS SIO option SLAM',
-    subtitle: 'Lycée — Ville',
+    year: "2023 – 2025",
+    title: "DUT Informatique",
+    subtitle: "IUT de Lille — Villeneuve d'Ascq",
     description:
-      `Spécialité Solutions Logicielles et Applications Métiers. Développement d'applications, gestion de projet, stage en entreprise.`,
-    tags: ['Java', 'PHP', 'SQL', 'POO'],
+      "Formation en développement logiciel, algorithmique, bases de données et architecture web. Projets en équipe, méthodes agiles.",
+    tags: ["Algorithmique", "Web", "BDD", "Agile"],
   },
   {
-    year: '2021',
-    title: 'Baccalauréat Général',
-    subtitle: 'Lycée — Ville',
-    description: 'Spécialités Mathématiques et Numérique & Sciences Informatiques. Mention Bien.',
-    tags: ['Maths', 'NSI'],
+    year: "2023",
+    title: "Baccalauréat STI2D Option SIN",
+    subtitle: "Lycée de l'Europe — Dunkerque",
+    description:
+      "Baccalauréat technologique orienté systèmes d'information et numérique : développement, réseaux, électronique embarquée et gestion de projet. Mention Bien.",
+    tags: ["STI2D", "SIN", "Réseaux", "Électronique", "Projet"],
   },
 ];
 

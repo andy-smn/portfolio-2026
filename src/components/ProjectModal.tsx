@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import type { Project } from '../types/project';
+import { useEffect } from "react";
+import type { Project } from "../types/project";
 
 interface ProjectModalProps {
   project: Project;
@@ -9,9 +9,9 @@ interface ProjectModalProps {
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   // Close on Escape key
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
   return (
@@ -29,16 +29,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           className="absolute top-4 right-4 text-muted hover:text-white transition-colors"
           aria-label="Fermer"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
         {/* Header */}
         <div
-          className={`w-16 h-16 bg-gradient-to-br ${project.gradient} rounded-xl flex items-center justify-center text-3xl mb-5`}
+          className={`w-16 h-16 bg-gradient-to-br ${project.gradient} rounded-xl flex items-center justify-center mb-5`}
         >
-          {project.emoji}
+          {project.icon}
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
 
@@ -55,22 +65,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Description */}
-        <p className="text-muted leading-relaxed mb-6">{project.longDescription}</p>
-
-        {/* Links */}
-        <div className="flex flex-wrap gap-3">
-          {project.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2 bg-gradient-to-r from-primary to-secondary text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <p className="text-muted leading-relaxed">{project.longDescription}</p>
       </div>
     </div>
   );

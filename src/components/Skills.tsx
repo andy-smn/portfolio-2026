@@ -1,21 +1,28 @@
-interface SkillBarProps {
+import { Globe } from "lucide-react";
+
+interface SkillItemProps {
   name: string;
-  percent: number;
+  technologies: string[];
   color?: string;
 }
 
-function SkillBar({ name, percent, color = 'from-primary to-secondary' }: SkillBarProps) {
+function SkillItem({
+  name,
+  technologies,
+  color = "from-primary to-secondary",
+}: SkillItemProps) {
   return (
     <div>
-      <div className="flex justify-between mb-1">
-        <span className="text-white text-sm font-medium">{name}</span>
-        <span className="text-muted text-sm">{percent}%</span>
-      </div>
-      <div className="h-2 bg-border rounded-full overflow-hidden">
-        <div
-          className={`h-full bg-gradient-to-r ${color} rounded-full transition-all duration-1000`}
-          style={{ width: `${percent}%` }}
-        />
+      <h4 className="text-white text-sm font-medium mb-3">{name}</h4>
+      <div className="flex flex-wrap gap-2">
+        {technologies.map((tech) => (
+          <span
+            key={tech}
+            className={`px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r ${color} rounded-lg border border-opacity-20 border-white hover:scale-105 transition-transform duration-200`}
+          >
+            {tech}
+          </span>
+        ))}
       </div>
     </div>
   );
@@ -23,24 +30,56 @@ function SkillBar({ name, percent, color = 'from-primary to-secondary' }: SkillB
 
 interface SkillCategory {
   title: string;
-  icon: string;
+  icon: React.ReactNode;
   description: string;
-  skills: { name: string; percent: number }[];
+  skills: { name: string; technologies: string[] }[];
   color?: string;
 }
 
 // ─── Ajouter une catégorie ici pour en rajouter une ───
 const skillCategories: SkillCategory[] = [
   {
-    title: 'Développement Web',
-    icon: '🌐',
-    description: 'Technologies Front-end et Back-end pour créer des applications web modernes.',
-    color: 'from-primary to-secondary',
+    title: "Développement Web",
+    icon: <Globe className="w-8 h-8 text-primary" />,
+    description:
+      "Technologies Front-end et Back-end pour créer des applications web modernes.",
+    color: "from-primary to-secondary",
     skills: [
-      { name: 'React / TypeScript', percent: 85 },
-      { name: 'Node.js / Express', percent: 75 },
-      { name: 'HTML / CSS', percent: 90 },
-      { name: 'SQL / PostgreSQL', percent: 70 },
+      {
+        name: "Frontend",
+        technologies: [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vite",
+          "Next.js",
+          "Stimulus",
+        ],
+      },
+      {
+        name: "Backend",
+        technologies: [
+          "Node.js",
+          "Express",
+          "Symfony",
+          "Twig",
+          "Java",
+          "SpringBoot",
+          "REST APIs",
+          "PostgreSQL",
+        ],
+      },
+      {
+        name: "Tools & Methods",
+        technologies: [
+          "Git",
+          "GitHub",
+          "VS Code",
+          "JetBrains IDE",
+          "DevTools",
+          "Agile",
+        ],
+      },
     ],
   },
 ];
@@ -67,13 +106,20 @@ export default function Skills() {
               className="gradient-border bg-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl">{cat.icon}</span>
+                <div>{cat.icon}</div>
                 <h3 className="text-white font-bold text-lg">{cat.title}</h3>
               </div>
-              <p className="text-muted text-sm mb-6 leading-relaxed">{cat.description}</p>
+              <p className="text-muted text-sm mb-6 leading-relaxed">
+                {cat.description}
+              </p>
               <div className="space-y-4">
                 {cat.skills.map((skill) => (
-                  <SkillBar key={skill.name} name={skill.name} percent={skill.percent} color={cat.color} />
+                  <SkillItem
+                    key={skill.name}
+                    name={skill.name}
+                    technologies={skill.technologies}
+                    color={cat.color}
+                  />
                 ))}
               </div>
             </div>
